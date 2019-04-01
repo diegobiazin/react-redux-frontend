@@ -12,11 +12,13 @@ export default class Dashboard2 extends Component {
     super(props);
     this.state = { credit: 0, debt: 0 };
   }
+
   componentWillMount() {
     axios
       .get(`${BASE_URL}/billingCycles/summary`)
       .then(resp => this.setState(resp.data));
   }
+
   render() {
     const { credit, debt } = this.state;
     return (
